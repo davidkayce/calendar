@@ -46,8 +46,6 @@ strong {
   border-radius: 5px;
   background: #fff;
   box-shadow: 0px 5px 7px rgba(126, 142, 177, 0.1);
-  max-height: 1200px;
-  overflow-y: auto;
 }
 
 /* Control bar styles */
@@ -96,6 +94,7 @@ strong {
   position: absolute;
   width: calc((var(--column-width) * 7) + (var(--timing-width)) + 6px);
   margin-top: -5px;
+  z-index: 1;
 }
 
 #calendar-heading > .bottom-heading > div {
@@ -123,6 +122,8 @@ strong {
 #calendar-content {
   display: flex;
   margin-top: -10px;
+  max-width: 100%;
+  overflow-x: scroll;
 }
 
 .calendar-day {
@@ -173,6 +174,7 @@ strong {
   border-radius: 5px;
   position: absolute;
   cursor: pointer;
+  border: 1px solid white;
 }
 
 p {
