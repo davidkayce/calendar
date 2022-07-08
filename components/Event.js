@@ -1,25 +1,12 @@
-const eventModalButton =  document.getElementById("modal-close");
-const eventTitle = document.getElementById("event-title");
+const Event = (title, from, to, id) => `
+  <p id='event-title'> ${title} </p> \
 
-eventTitle.addEventListener("click", () => {
-  document.getElementById("dialog").show();
-});
-
-eventModalButton.addEventListener("click", () => {
-  document.getElementById("dialog").close();
-});
-
-
-const Event = (title, from, to) => `
-  <span id='event-title'> ${title} </span> \
-
-  <dialog id="dialog">
+  <dialog class="dialog" id="dialog-${id}">
     <h3>${title}</h3>
     <p class="event-time">
-      <strong>From:</strong> ${from} <strong> To:</strong> ${to}
+      <strong>From:</strong>${from} <br /> <strong> To:</strong>${to}
     </p>
     <p>You currently have no description for this event. Please try to be on time</p>
-    <button id="modal-close">Dismiss</button>
+    <button id="modal-close-${id}">Dismiss</button>
   </dialog>
 `;
-
