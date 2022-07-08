@@ -130,6 +130,7 @@ strong {
   padding-top: 40px;
   border-right: 1px solid var(--primary-color);
   min-width: var(--column-width);
+  position: relative;
 }
 
 .calendar-day:first-of-type {
@@ -165,9 +166,50 @@ strong {
 }
 
 /* Event styles */
-.event-title {
+.event {
   font-size: var(--small-font-size);
   font-weight: 700;
+  background-color: rgb(98, 98, 243);
+  border-radius: 5px;
+  position: absolute;
+  cursor: pointer;
+}
+
+p {
   color: white;
-  background-color: rgb(46, 46, 208);
+  font-size: 15px;
+  font-weight: 700;
+  padding: 10px 15px;
+}
+
+.dialog {
+  border-radius: 10px;
+  border: none;
+  box-shadow: 0px 5px 7px rgba(126, 142, 177, 0.1);
+  background-color: #f3f4f8;
+}
+
+.dialog > h3 {
+  font-size: 18px;
+  font-weight: 700;
+  padding: 0 8px;
+}
+
+.dialog > p {
+  color: #4a4a4a;
+  font-weight: 300;
+  padding: 8px;
+}
+
+.dialog > button {
+  width: 100%;
+  font-size: var(--small-font-size);
+  font-weight: 700;
+  padding: 8px;
+  background: rgb(98, 98, 215);
+  border: none;
+  color: white;
+  border-radius: 4px;
+  margin-top: 15px;
+  cursor: pointer;
 }
