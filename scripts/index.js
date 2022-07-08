@@ -19,6 +19,18 @@ const STATE = {
   weekMap: null,
 };
 
+/**
+ * @function setState
+ * @param {Map} weekMap - Calculated map of week dates and UNIX time .
+ * @param {String} month - Month of the first day of the week.
+ * @param {String} year - Year of the first day of the week.
+ * @param {Number} today - Current day.
+ * @param {Number} isTodayValid - Boolean value that checks if the current day is in the weekMap
+ * @param {Date} next - Next week's first day.
+ * @param {Date} previous - Previous week's first day.
+ * @param {Number} today - Current day.
+ * @description - Updates the application state
+ */
 const setState = (
   weekMap,
   month,
@@ -37,6 +49,12 @@ const setState = (
   STATE.weekMap = weekMap;
 };
 
+/**
+ * @function getDayEvents
+ * @description - for each day in the week map, this function sorts through the events to assign 
+ * the appropriate event to the day.
+ */
+
 const getDayEvents = () => {
   STATE.weekMap.forEach((value, key) => {
     const events = [];
@@ -47,6 +65,7 @@ const getDayEvents = () => {
         event.dateTo < value.time + 86400000
       ) {
         events.push({
+          id: event.id,
           from: new Date(event.dateFrom).toLocaleTimeString().slice(0, 5),
           to: new Date(event.dateTo).toLocaleTimeString().slice(0, 5),
           title: event.eventName,
@@ -57,6 +76,11 @@ const getDayEvents = () => {
     STATE.weekMap.set(key, { ...value, events });
   });
 };
+
+/**
+ * @function drawCalendar
+ * @description - This function draws the calendar and calls the other day functons for events
+ */
 
 const drawCalendar = () => {
   const fragment = document.createDocumentFragment();
@@ -82,6 +106,11 @@ const drawCalendar = () => {
   DayView(STATE.weekMap);
 };
 
+/**
+ * @function drawHeading
+ * @description - This function draws the calendar heading
+ */
+
 const drawHeading = () => {
   calendarHeading.innerHTML = Heading(
     Array.from(STATE.weekMap.keys()),
@@ -89,6 +118,15 @@ const drawHeading = () => {
     STATE.isTodayValid
   );
 };
+
+/**
+ * @function checkIfTodayIsValid
+ * @description - This function draws the calendar heading
+ * @param {Date} today - Current day.
+ * @param {Object} weekData - Object containing the week's data.
+ * @returns {Boolean} - Returns true if the month and year match the current day. It does not check
+ * if the day is in the weekMap because that is done in the heading function.
+ */
 
 const checkIfTodayIsValid = (today, weekData) => {
   if (
@@ -99,6 +137,12 @@ const checkIfTodayIsValid = (today, weekData) => {
   }
   return false;
 };
+
+/**
+ * @function goTo
+ * @description - This navigates through dates in the calendar
+ * @param {string} direction - Direction to navigate. It could be "today", "next" or "previous"
+ */
 
 const goTo = (direction) => {
   const today = new Date();
