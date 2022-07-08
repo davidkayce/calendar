@@ -14,9 +14,15 @@ const MONTHS = [
   "December",
 ];
 
+/**
+ * @description - This function updates the Date object on the browser to generate the dates of each week
+ * @returns {Object} WeekData - Object containing the week's data.
+ */
+
 Date.prototype.GetWeekData = function () {
-  // This returns Monday of the week of the date
   const buffer = new Date(this);
+
+  // Find the first day of the week (this returns Monday rather than Sunday to match the design of the calendar)
   const firstDayOfWeek = new Date(
     buffer.setDate(
       buffer.getDate() - buffer.getDay() + (buffer.getDay() == 0 ? -6 : 1)
@@ -27,6 +33,7 @@ Date.prototype.GetWeekData = function () {
   let next = null;
   let weekMap = new Map();
 
+  // Create a map of the week's dates
   for (let i = 0; i < 7; i++) {
     weekMap.set(date.getDate(), { time: date.getTime() });
     date.setDate(date.getDate() + 1);
