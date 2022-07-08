@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calendar Test</title>
+  <link rel="stylesheet" href="./css/index.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,700;1,300&display=swap"
+    rel="stylesheet">
+</head>
+
+<body>
+  <div id="calendar-container">
+    <section class="control-bar">
+      <h4>
+        <strong id="month-placeholder"></strong>
+        <span id="year-placeholder"></span>
+      </h4>
+      <section class="date-controls">
+        <button id="previous-button">< </button>
+        <button id="today-button">Today</button>
+        <button id="next-button">></button>
+      </section>
+    </section>
+    <section id="calendar-heading"></section>
+    <section id="calendar-content"></section>
+  </div>
+
+  <script text="text/javascript" src="./components/Event.js"></script>
+  <script text="text/javascript" src="./components/DayView.js"></script>
+  <script text="text/javascript" src="./components/Heading.js"></script>
+  <script text="text/javascript" src="./mock/events.js"></script>
+  <script text="text/javascript" src="./scripts/utils.js"></script>
+  <script text="text/javascript" src="./scripts/index.js"></script>
+</body>
+
+</html>

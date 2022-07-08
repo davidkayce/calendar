@@ -1,0 +1,76 @@
+body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i,dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, section, summary,
+time, audio {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  font-family: 'Montserrat', sans-serif;
+  color: #D1D1D1;
+}
+
+// Container styles
+
+// .container {
+// 	height: 720px;
+// 	width: 900px;
+// 	display: inline-flex;
+// }
+
+.timings {
+	text-align: right;
+	padding-right: 10px;
+	width: 100px;
+	height: 720px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	background-color: white;
+	font-size: 0.5em;
+	box-sizing: border-box;
+	span {
+		font-size: 200%;
+		color: #696969;
+	}
+}
+
+.days {
+	height: 720px;
+	width: 620px;
+	padding: 0px 10px;
+	background-color: #F0F0F0;
+	border-color: #D1D1D1;
+	border-style: solid;
+	border-width: 1px;
+	box-sizing: border-box;
+}
+
+.with-events {
+	background-color: white;
+	border-style: solid;
+	border-width: 1px;
+	border-left-width: 5px;
+	border-color: #D1D1D1;
+	border-left-color: #57b986;
+	padding-left: 10px;
+	padding-top: 5px;
+	position: absolute;
+	font-size: 0.5em;
+	box-sizing: border-box;
+
+	.title {
+		color: #57b986;
+		font-size: 200%;
+	}
+}
