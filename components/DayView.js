@@ -2,18 +2,6 @@
 const hourHeight = 60;
 const containerWidth = 163.5;
 
-
-/*
-find width and horizontal position
-width - number of units to divide container width by
-horizontal position - pixel offset from left
-*/
-
-function getAttributes(events, collisions) {
-
-  
-}
-
 /**
  * @function drawDay
  * @param {string} day - Type of day.
@@ -35,7 +23,6 @@ const drawSingleEvent = (
   day
 ) => {
   const eventNode = document.createElement("article");
-  eventNode.classList.add("calendar-day");
   eventNode.className = "event";
   eventNode.setAttribute("id", `event-${id}`);
   const compLeft = day === "Mon" ? left + 100 : left;
@@ -142,8 +129,6 @@ const drawEvents = (containerRef, events, day) => {
 
         collisions.forEach((period) => {
           // number of events in that period 
-          // this more suitable than sorting the array and then pop()
-
           let count = period.reduce((a, b) => {
             return b ? a + 1 : a;
           });
@@ -189,7 +174,7 @@ const drawEvents = (containerRef, events, day) => {
       }
 
       const eventModalButton = document.getElementById(`modal-close-${event.id}`);
-      const eventTitle = document.getElementById(`event-${event.id}`);
+      const eventTitle = document.getElementById(`event-title-${event.id}`);
       const eventDialog = document.getElementById(`dialog-${event.id}`);
 
       eventTitle.addEventListener("click", () => {

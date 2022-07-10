@@ -1,5 +1,5 @@
 const Event = (title, from, to, id) => `
-  <p id='event-title'> ${title} </p> 
+  <p id='event-title-${id}'> ${title} </p> 
 
   <dialog class="dialog" id="dialog-${id}">
     <h3>${title}</h3>
