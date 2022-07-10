@@ -102,13 +102,12 @@ const drawEvents = (containerRef, events, day) => {
         );
       } else {
         // calculate the collisions of events
-        // This assumes that events are sorted by start time from the API
+        // This assumes that events are sorted by start time from the API response (as is the case with the mocked API)
         // otherwise we can have an event that starts later have a lower order. 
         // In which case we would have to sort events before this expression
 
         while (start < end) {
           let timeIndex = Math.floor(start / 60);
-          console.log(start, timeIndex, collisions[timeIndex]);
     
           while (eventOrder < events.length) {
             if (collisions[timeIndex].indexOf(eventOrder) === -1) {
@@ -123,7 +122,7 @@ const drawEvents = (containerRef, events, day) => {
         
         collisions[Math.floor((end - 1) / 60)][id] = eventOrder;
 
-        // Calculate width and horizontal position of the event
+        // Calculate width and horizontal position of the event based in the collisions array
         // width - number of units to divide container width by
         // horizontal position - pixel offset from left
 
